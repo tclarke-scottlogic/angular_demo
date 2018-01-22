@@ -19,4 +19,8 @@ export class HeroesComponent implements OnInit {
     console.info("initing hero component")
   }
 
+  printOut(){
+    console.log(this.selectedHero);
+  }
+
 }
