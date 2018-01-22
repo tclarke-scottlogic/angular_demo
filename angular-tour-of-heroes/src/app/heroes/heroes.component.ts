@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HEROES } from "../mock-heroes"
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-heroes',
@@ -7,6 +8,7 @@ import { HEROES } from "../mock-heroes"
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
+  selectedHero: Hero;
 
   heroes = HEROES;
 
@@ -15,6 +17,11 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     console.info("initing hero component")
+  }
+
+  onSelect(hero: Hero): void{
+    console.log(hero);
+    this.selectedHero = hero;
   }
 
 }
