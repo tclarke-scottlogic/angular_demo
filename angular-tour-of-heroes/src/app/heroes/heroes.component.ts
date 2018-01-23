@@ -14,7 +14,7 @@ export class HeroesComponent implements OnInit {
   constructor(private heroService: HeroService, private messageService: MessageService) {
   }
 
-  getHeroes() : void{
+  getHeroes(): void {
     this.heroService.getHeroes().subscribe(heroes =>
       this.heroes = heroes
     );
@@ -24,4 +24,13 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+  add(heroName: string) {
+    console.log(heroName);
+    heroName = heroName.trim();
+    if (!heroName) { return; }
+    this.heroService.addHero({ name: heroName } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+    });
+  }
 }
