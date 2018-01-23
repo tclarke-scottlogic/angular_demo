@@ -7,7 +7,6 @@ export class MessageService {
 
   add(message: string){
     this.messages.push(message);
-    console.info(this.messages);
   }
 
   clear(){
